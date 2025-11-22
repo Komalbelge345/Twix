@@ -2,6 +2,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import myContext from "./myContext.js";
 import { useEffect } from "react";
 const host = process.env.REACT_APP_SERVER_HOST;
+console.log("REACT_APP_SERVER_HOST =", host);
+
 const MyState = (props) => {
     const location = useLocation().pathname;
     const { alert, startLoading, endLoading } = props;

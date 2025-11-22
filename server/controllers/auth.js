@@ -40,6 +40,7 @@ const signup = async (req, res) => {
 
 const signin = async(req, res) => {
     try{
+         console.log("Received signup data:", req.body);
         const {username,password} = req.body;
         const user = await User.find({username});
         if(user.length===0){
@@ -55,7 +56,10 @@ const signin = async(req, res) => {
         res.json({"success":true,authToken});
 
     }catch(err){
-        res.json({ "Error": err.msg });
+        // res.json({ "Error": err.msg });
+        console.log("Signup error:", err);
+res.status(500).json({ "Error": err.message });
+
     }
 }
 
